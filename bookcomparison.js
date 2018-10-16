@@ -6,16 +6,16 @@ angular.module('app', [])
 
 function mainCtrl ($scope) {
     
-    $scope.bookForms = [];
+    $scope.books = [];
      
-     $scope.addNew = function (bookForm) {
-         $scope.bookForms.push({
-             first: bookForm.first,
-             second: bookForm.second,
-         }); /* [1] */
+     $scope.addNew = function (book) {
+         $scope.books.push({
+             first: book.first,
+             second: book.second
+         }); 
          
-         bookForm.first = '';
-         bookForm.second = '';
+         book.first = '';
+         book.second = '';
      };
 }
 
@@ -23,22 +23,22 @@ function mainCtrl ($scope) {
 function comparisonDirective () {
     return {
         scope: {
-            bookForm: '=' 
+            book: '=' 
         },
         restrict: 'E', 
         replace: 'true',
         template: (
             '<div class="Comparison">' +
-             '<h4>{{bookForm.first}}</h4>' +
-             '<h4>{{bookForm.second}}</h4>' +
+             '<h4>First book: {{book.first}}</h4>' +
+             '<h4>Second book: {{book.second}}</h4>' +
             '</div>'
         )//,
     //link: link
     };
     
    /* function link (scope)
-       // if (!scope.bookForm.comparisonUrl) {
-            //scope.bookForm.comparisonUrl = 'https://www.drupalorg/files/issues/default-avatar.png';
+       // if (!scope.book.comparisonUrl) {
+            //scope.book.comparisonUrl = 'https://www.drupalorg/files/issues/default-avatar.png';
        // }
     }*/
 }
