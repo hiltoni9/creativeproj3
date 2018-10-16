@@ -10,13 +10,12 @@ function mainCtrl ($scope) {
      
      $scope.addNew = function (bookForm) {
          $scope.bookForms.push({
-             name: bookForm.name,
-             email: bookForm.email,
-             comparisonUrl: bookForm.url
+             first: bookForm.first,
+             second: bookForm.second,
          }); /* [1] */
          
-         bookForm.name = '';
-         bookForm.url = '';
+         bookForm.first = '';
+         bookForm.second = '';
      };
 }
 
@@ -30,18 +29,17 @@ function comparisonDirective () {
         replace: 'true',
         template: (
             '<div class="Comparison">' +
-             '<img ng-src="{{bookForm.comparisonUrl}}" />' +
              '<h4>{{bookForm.first}}</h4>' +
              '<h4>{{bookForm.second}}</h4>' +
             '</div>'
-        ), /* [3] */
-    link: link
+        )//,
+    //link: link
     };
     
-    function link (scope) { /* [4] */
-        if (!scope.bookForm.comparisonUrl) {
-            scope.bookForm.comparisonUrl = 'https://www.drupalorg/files/issues/default-avatar.png';
-        }
-    }
+   /* function link (scope)
+       // if (!scope.bookForm.comparisonUrl) {
+            //scope.bookForm.comparisonUrl = 'https://www.drupalorg/files/issues/default-avatar.png';
+       // }
+    }*/
 }
     
