@@ -1,4 +1,7 @@
 angular.module('app', [])
+    .config(function($sceDelegateProvider) {
+        $sceDelegateProvider.resourceUrlWhitelist(['**']);
+    })
     .controller('mainCtrl', mainCtrl)
     .directive('comparison', comparisonDirective);
 
@@ -10,9 +13,10 @@ function mainCtrl($scope, $http) {
 
     $scope.addNew = function(book) {
         console.log(book);
-        var url = "http://www.goodreads.com/search.xml?key=xqIBQHVgUlJIE5jIX8GTg&q=Ender%27s+Game"; // + form;
+        var url = "https://www.goodreads.com/search.xml?key=xqIBQHVgUlJIE5jIX8GTg&q=Ender%27s+Game"; // + form;
         console.log(url);
-        $http.get(url).then(function(response) {
+        $http.jsonp(url,{jsonpCallbackParam: 'callback'})
+        .then(function(response) {
             console.log(response);
             $scope.bookData = response.data;
         });
