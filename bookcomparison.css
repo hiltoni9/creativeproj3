@@ -29,6 +29,10 @@ body {
     font-size: 13px;
 }
 
+.Book-list {
+    list-style: none;
+}
+
 p {
     color: black;
     line-height: 1.5;
