@@ -19,21 +19,21 @@
        
   <div ng-app='app' ng-controller='mainCtrl' class='center'>
     <p class="display-2 text-center">BOOK BATTLE</p> <br>
-    <h1>Enter two book titles and their book avatar image URL:</h1>
+    <h4>Enter two book titles and two corresponding images:</h4>
     
     <form name='bookForm' ng-submit='addNew(bookForm)'>
       
       <input placeholder='First Book' ng-model='bookForm.first'/>
-      <input placeholder='First book image URL' ng-model='bookForm.firstImg' /><br> <br> 
+      <input class='space' placeholder='First book image URL' ng-model='bookForm.firstImg' /><br> <br> 
       <input placeholder='Second Book' ng-model='bookForm.second'/>
-      <input placeholder='Second book image URL' ng-model='bookForm.secondImg' /><br><br> 
+      <input class='space' placeholder='Second book image URL' ng-model='bookForm.secondImg' /><br><br> 
       
       <button type='submit' class='btn btn-dark btn-lg'>BATTLE</button>
     </form>
     
     <ul class='Book-list'>
      
-        <li ng-repeat='book in books'>
+        <li ng-repeat='book in books>
             <comparison book='book' />
         </li>
     </ul>

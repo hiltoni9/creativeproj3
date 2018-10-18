@@ -29,8 +29,12 @@ body {
     font-size: 13px;
 }
 
+.space {
+    margin-left: 10px;
+}
 .Book-list {
-    list-style: none;
+    list-style:none;
+    padding-left:0;
 }
 
 .Comparison {
@@ -63,7 +67,11 @@ img {
 
 
 #victor {
-    color: lightblue;
+    color: #d1085f;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.winner-banner {
+    color: #ffa3ca;
 }

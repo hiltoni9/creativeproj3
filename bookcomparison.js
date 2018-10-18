@@ -82,7 +82,7 @@ function comparisonDirective() {
             '<h4>{{book.second}}</h4>' +
             '</div>' +
             '</div>' +
-            '<h3 class="text-center"><span id="victor">{{book.winner}}</span> is the winner!</h3>' +
+            '<h3 class="winner-banner text-center"><span id="victor">{{book.winner}}</span> is the winner!</h3>' +
             '</div>'
         ) ,
         link: link
