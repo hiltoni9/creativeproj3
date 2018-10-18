@@ -54,15 +54,20 @@ function comparisonDirective() {
         replace: 'true',
         template: (
             '<div class="Comparison">' +
-            '<div class="row">' +
-            '<div class="col-md-6">' +
-            '<h4>First book: {{book.first}}</h4>' +
+            '<div class="row align-items-center">' +
+            '<div class="col-md-4 text-center">' +
+            '<img src="https://us.123rf.com/450wm/wektorygrafika/wektorygrafika1601/wektorygrafika160100003/50246517-open-book-vector-clipart-silhouette-symbol-icon-design-illustration-isolated-on-white-background-.jpg?ver=6">' +
+            '<h4>{{book.first}}</h4>' +
             '</div>' +
-            '<div class="col-md-6">' +
-            '<h4>Second book: {{book.second}}</h4>' +
+            '<div class="col-md-4 text-center">' +
+            '<h4>VS</h4>' +
+            '</div>' +
+            '<div class="col-md-4 text-center">' +
+            '<img src="https://us.123rf.com/450wm/wektorygrafika/wektorygrafika1601/wektorygrafika160100003/50246517-open-book-vector-clipart-silhouette-symbol-icon-design-illustration-isolated-on-white-background-.jpg?ver=6">' +
+            '<h4>{{book.second}}</h4>' +
             '</div>' +
             '</div>' +
-            '<h3><span id="victor">{{book.winner}}</span> is the winner!</h3>' +
+            '<h3 class="text-center"><span id="victor">{{book.winner}}</span> is the winner!</h3>' +
             '</div>'
         ) //,
         //link: link
