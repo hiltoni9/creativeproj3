@@ -30,18 +30,33 @@ function mainCtrl($scope, $http) {
             console.log(response);
             $scope.gitdata = response.data;
         });*/
-
-        var winner = battle(book.first, book.second);
-        $scope.books.push({
-            first: book.first,
-            second: book.second,
-            winner: winner
-        });
-
-        book.first = '';
-        book.second = '';
-    };
+        /*if (!book.firstImg) {
+            book.firstImg = 'https://us.123rf.com/450wm/wektorygrafika/wektorygrafika1601/wektorygrafika160100003/50246517-open-book-vector-clipart-silhouette-symbol-icon-design-illustration-isolated-on-white-background-.jpg?ver=6';
+        }
+        if (!book.secondImg) {
+            book.secondImg = 'https://us.123rf.com/450wm/wektorygrafika/wektorygrafika1601/wektorygrafika160100003/50246517-open-book-vector-clipart-silhouette-symbol-icon-design-illustration-isolated-on-white-background-.jpg?ver=6';
+        }*/
     
+        if (book.first  && book.second) {
+            var winner = battle(book.first, book.second);
+            $scope.books.push({
+                first: book.first,
+                firstImg: book.firstImg,
+                second: book.second,
+                secImg: book.secondImg,
+                winner: winner
+            });
+
+            book.first = '';
+            book.firstImg = '';
+            book.second = '';
+            book.secondImg = '';
+        }
+        else {
+            alert("Please enter two books so they can battle!");
+        }
+    };
+
 }
 
 
@@ -56,33 +71,38 @@ function comparisonDirective() {
             '<div class="Comparison">' +
             '<div class="row align-items-center">' +
             '<div class="col-md-4 text-center">' +
-            '<img src="https://us.123rf.com/450wm/wektorygrafika/wektorygrafika1601/wektorygrafika160100003/50246517-open-book-vector-clipart-silhouette-symbol-icon-design-illustration-isolated-on-white-background-.jpg?ver=6">' +
+            '<img src="{{book.firstImg}}">' + //https://us.123rf.com/450wm/wektorygrafika/wektorygrafika1601/wektorygrafika160100003/50246517-open-book-vector-clipart-silhouette-symbol-icon-design-illustration-isolated-on-white-background-.jpg?ver=6">' +
             '<h4>{{book.first}}</h4>' +
             '</div>' +
             '<div class="col-md-4 text-center">' +
             '<h4>VS</h4>' +
             '</div>' +
             '<div class="col-md-4 text-center">' +
-            '<img src="https://us.123rf.com/450wm/wektorygrafika/wektorygrafika1601/wektorygrafika160100003/50246517-open-book-vector-clipart-silhouette-symbol-icon-design-illustration-isolated-on-white-background-.jpg?ver=6">' +
+            '<img src="{{book.secImg}}">' + //"https://us.123rf.com/450wm/wektorygrafika/wektorygrafika1601/wektorygrafika160100003/50246517-open-book-vector-clipart-silhouette-symbol-icon-design-illustration-isolated-on-white-background-.jpg?ver=6">' +
             '<h4>{{book.second}}</h4>' +
             '</div>' +
             '</div>' +
             '<h3 class="text-center"><span id="victor">{{book.winner}}</span> is the winner!</h3>' +
             '</div>'
-        ) //,
-        //link: link
+        ) ,
+        link: link
     };
 
-    /* function link (scope)
-        // if (!scope.book.comparisonUrl) {
-             //scope.book.comparisonUrl = 'https://www.drupalorg/files/issues/default-avatar.png';
-        // }
-     }*/
+    function link (scope) {
+         if (!scope.book.firstImg) {
+             scope.book.firstImg = 'https://us.123rf.com/450wm/wektorygrafika/wektorygrafika1601/wektorygrafika160100003/50246517-open-book-vector-clipart-silhouette-symbol-icon-design-illustration-isolated-on-white-background-.jpg?ver=6';
+         }
+         if (!scope.book.secImg) {
+             scope.book.secImg = 'https://us.123rf.com/450wm/wektorygrafika/wektorygrafika1601/wektorygrafika160100003/50246517-open-book-vector-clipart-silhouette-symbol-icon-design-illustration-isolated-on-white-background-.jpg?ver=6';
+         }
+     }
 }
 
 function battle(book1, book2) {
     var bookVal1 = 0;
     var bookVal2 = 0;
+    console.log("BOOK 1 = " + book1);
+    console.log("BOOK 2 = " + book2);
     for (var i = 0; i < book1.length; i++) {
         bookVal1 += book1.charCodeAt(i);
     }

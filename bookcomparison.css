@@ -33,6 +33,10 @@ body {
     list-style: none;
 }
 
+.Comparison {
+    margin-top: 40px;
+}
+
 p {
     color: black;
     line-height: 1.5;
@@ -61,4 +65,5 @@ img {
 #victor {
     color: lightblue;
     font-weight: bold;
+    text-transform: uppercase;
 }
