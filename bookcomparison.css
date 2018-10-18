@@ -12,7 +12,7 @@ body {
     padding: 10px;
     background-color: #f3f7ff;
     
-     border-radius: 25px;
+    border-radius: 25px;
 }
 
 .movie {
@@ -51,4 +51,10 @@ h1 {
 h2 {
      font-size:25px;
      font-family: Helvetica, "Times New Roman", times, serif;
+}
+
+
+#victor {
+    color: lightblue;
+    font-weight: bold;
 }

@@ -13,7 +13,7 @@ function mainCtrl($scope, $http) {
 
     $scope.addNew = function(book) {
         console.log(book);
-        //var url = "https://www.goodreads.com/search.xml?key=xqIBQHVgUlJIE5jIX8GTg&q=Ender%27s+Game"; // + form;
+        /*//var url = "https://www.goodreads.com/search.xml?key=xqIBQHVgUlJIE5jIX8GTg&q=Ender%27s+Game"; // + form;
         //var url = "https://www.goodreads.com/book/title.json?key=xqIBQHVgUlJIE5jIX8GTg&title=Ender%27s+Game";
         //var url = "http://openlibrary.org/query.json?type=/type/edition&title=Ender%27s+Game";
         //var url = "http://api.nytimes.com/svc/books/v3/reviews.jsonp?api-key=602f6fba4a6f4fe2aacb858305719e52&title=1984";
@@ -24,21 +24,24 @@ function mainCtrl($scope, $http) {
             console.log(response);
             $scope.bookData = response.data;
         });
-        console.log(url);
+        console.log(url);*/
         /*url = "https://api.github.com/users/mjcleme";
         $http.get(url).then(function(response) {
             console.log(response);
             $scope.gitdata = response.data;
         });*/
 
+        var winner = battle(book.first, book.second);
         $scope.books.push({
             first: book.first,
-            second: book.second
+            second: book.second,
+            winner: winner
         });
 
         book.first = '';
         book.second = '';
     };
+    
 }
 
 
@@ -59,6 +62,7 @@ function comparisonDirective() {
             '<h4>Second book: {{book.second}}</h4>' +
             '</div>' +
             '</div>' +
+            '<h3><span id="victor">{{book.winner}}</span> is the winner!</h3>' +
             '</div>'
         ) //,
         //link: link
@@ -69,4 +73,21 @@ function comparisonDirective() {
              //scope.book.comparisonUrl = 'https://www.drupalorg/files/issues/default-avatar.png';
         // }
      }*/
+}
+
+function battle(book1, book2) {
+    var bookVal1 = 0;
+    var bookVal2 = 0;
+    for (var i = 0; i < book1.length; i++) {
+        bookVal1 += book1.charCodeAt(i);
+    }
+    for (var i = 0; i < book2.length; i++) {
+        bookVal2 += book2.charCodeAt(i);
+    }
+    if (bookVal1 > bookVal2) {
+        return book1;
+    }
+    else {
+        return book2;
+    }
 }
