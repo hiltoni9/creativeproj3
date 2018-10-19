@@ -33,7 +33,7 @@
     
     <ul class='Book-list'>
      
-        <li ng-repeat='book in books>
+        <li ng-repeat="book in books | orderBy: '-$index'">
             <comparison book='book' />
         </li>
     </ul>

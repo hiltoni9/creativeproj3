@@ -39,7 +39,7 @@ function mainCtrl($scope, $http) {
     
         if (book.first  && book.second) {
             var winner = battle(book.first, book.second);
-            $scope.books.push({
+            $scope.books.unshift({
                 first: book.first,
                 firstImg: book.firstImg,
                 second: book.second,
